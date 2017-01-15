@@ -1,3 +1,5 @@
+import 'parser.dart' show Parser;
+import 'recognition_exception.dart';
 import 'token.dart';
 
 /**

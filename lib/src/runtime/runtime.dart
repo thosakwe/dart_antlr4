@@ -1,13 +1,23 @@
-library antlr4.runtime;
+library antlr.runtime;
 
+export 'antlr_input_stream.dart';
+export 'base_error_listener.dart';
 export 'char_stream.dart';
+export 'console_error_listener.dart';
 export 'error_listener.dart';
 export 'error_strategy.dart';
 export 'int_stream.dart';
 export 'parser.dart';
+export 'parser_rule_context.dart';
+export 'recognition_exception.dart';
 export 'recognizer.dart';
+export 'rule_context.dart';
+export 'rule_context_with_alt_num.dart';
 export 'token.dart';
 export 'token_factory.dart';
 export 'token_source.dart';
+export 'token_stream.dart';
+export 'trace_listener.dart';
+export 'trim_to_size_listener.dart';
 export 'vocabulary.dart';
 export 'writable_token.dart';

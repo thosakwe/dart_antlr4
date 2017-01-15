@@ -33,7 +33,7 @@ abstract class TokenSource {
  * @return The line number for the current position in the input stream, or
  * 0 if the current token source does not track line numbers.
  */
-  int getLine();
+  int get line;
 
 /**
  * Get the index into the current line for the current position in the input
@@ -42,7 +42,7 @@ abstract class TokenSource {
  * @return The line number for the current position in the input stream, or
  * -1 if the current token source does not track character positions.
  */
-  int getCharPositionInLine();
+  int get charPositionInLine;
 
 /**
  * Get the {@link CharStream} from which this token source is currently
@@ -52,14 +52,14 @@ abstract class TokenSource {
  * the input, or {@code null} if no input stream is available for the token
  * source.
  */
-  CharStream getInputStream();
+  CharStream get inputStream;
 
 /**
  * Gets the name of the underlying input source. This method returns a
  * non-null, non-empty string. If such a name is not known, this method
  * returns {@link IntStream#UNKNOWN_SOURCE_NAME}.
  */
-  String getSourceName();
+  String get sourceName;
 
 /**
  * Set the {@link TokenFactory} this token source should use for creating
@@ -67,7 +67,7 @@ abstract class TokenSource {
  *
  * @param factory The {@link TokenFactory} to use for creating tokens.
  */
-  void setTokenFactory(TokenFactory factory);
+  void set tokenFactory(TokenFactory _factory);
 
 /**
  * Gets the {@link TokenFactory} this token source is currently using for
@@ -75,5 +75,5 @@ abstract class TokenSource {
  *
  * @return The {@link TokenFactory} currently used by this token source.
  */
-  TokenFactory getTokenFactory();
+  TokenFactory get tokenFactory;
 }

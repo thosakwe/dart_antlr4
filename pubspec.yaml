@@ -1,8 +1,8 @@
 author: "Tobe O <thosakwe@gmail.com>"
 description: "New Dart runtime for ANTLR4."
 homepage: "https://github.com/thosakwe/dart_antlr4"
-name: "antlr4"
-version: "1.0.0-dev"
+name: "antlr"
+version: "4.6.0-alpha"
 dependencies: 
   charcode: "^1.1.1"
   string_scanner: "^1.0.1"

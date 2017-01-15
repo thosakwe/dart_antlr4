@@ -11,7 +11,7 @@ abstract class Vocabulary {
  * zero to that number, inclusively, thus querying all stored entries.
  * @return the highest token type value
  */
-  int getMaxTokenType();
+  int get maxTokenType;
 
 /**
  * Gets the string literal associated with a token type. The string returned

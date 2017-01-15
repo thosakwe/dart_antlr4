@@ -204,5 +204,5 @@ abstract class IntStream {
  * returns {@link #UNKNOWN_SOURCE_NAME}.
  */
 
-  String getSourceName();
+  String get sourceName;
 }

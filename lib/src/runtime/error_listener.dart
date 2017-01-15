@@ -1,5 +1,6 @@
 import 'atn/atn.dart' show ATNConfigSet, DecisionInfo, ParserATNSimulator, PredictionModel;
 import 'dfa/dfa.dart' show DFA;
+import 'recognizer.dart';
 
 /** How to emit recognition errors. */
 abstract class ANTLRErrorListener {
