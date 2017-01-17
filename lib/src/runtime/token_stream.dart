@@ -37,7 +37,7 @@ import 'token_source.dart';
  * An {@link IntStream} whose symbols are {@link Token} instances.
  */
 abstract class TokenStream extends IntStream {
-	/**
+  /**
 	 * Get the {@link Token} instance associated with the value returned by
 	 * {@link #LA LA(k)}. This method has the same pre- and post-conditions as
 	 * {@link IntStream#LA}. In addition, when the preconditions of this method
@@ -46,9 +46,9 @@ abstract class TokenStream extends IntStream {
 	 *
 	 * @see IntStream#LA
 	 */
-	 Token LT(int k);
+  Token LT(int k);
 
-	/**
+  /**
 	 * Gets the {@link Token} at the specified {@code index} in the stream. When
 	 * the preconditions of this method are met, the return value is non-null.
 	 *
@@ -66,15 +66,18 @@ abstract class TokenStream extends IntStream {
 	 * @throws UnsupportedOperationException if the stream does not support
 	 * retrieving the token at the specified index
 	 */
-	 Token get(int index);
+  Token get(int index);
 
-	/**
+  /** Get all tokens from start..stop inclusively */
+  List<Token> getRange(int start, int stop);
+
+  /**
 	 * Gets the underlying {@link TokenSource} which provides tokens for this
 	 * stream.
 	 */
-	 TokenSource get tokenSource;
+  TokenSource get tokenSource;
 
-	/**
+  /**
 	 * Return the text of all tokens within the specified {@code interval}. This
 	 * method behaves like the following code (including potential exceptions
 	 * for violating preconditions of {@link #get}, but may be optimized by the
@@ -95,9 +98,9 @@ abstract class TokenStream extends IntStream {
 	 *
 	 * @throws NullPointerException if {@code interval} is {@code null}
 	 */
-   String getTextForInterval(Interval interval);
+  String getTextForInterval(Interval interval);
 
-	/**
+  /**
 	 * Return the text of all tokens in the stream. This method behaves like the
 	 * following code, including potential exceptions from the calls to
 	 * {@link IntStream#size} and {@link #getText(Interval)}, but may be
@@ -110,9 +113,9 @@ abstract class TokenStream extends IntStream {
 	 *
 	 * @return The text of all tokens in the stream.
 	 */
-	 String getText();
+  String getText();
 
-	/**
+  /**
 	 * Return the text of all tokens in the source interval of the specified
 	 * context. This method behaves like the following code, including potential
 	 * exceptions from the call to {@link #getText(Interval)}, but may be
@@ -130,9 +133,9 @@ abstract class TokenStream extends IntStream {
 	 * text for.
 	 * @return The text of all tokens within the source interval of {@code ctx}.
 	 */
-	 String getTextForRule(RuleContext ctx);
+  String getTextForRule(RuleContext ctx);
 
-	/**
+  /**
 	 * Return the text of all tokens in this stream between {@code start} and
 	 * {@code stop} (inclusive).
 	 *
@@ -161,5 +164,5 @@ abstract class TokenStream extends IntStream {
 	 * @throws UnsupportedOperationException if this stream does not support
 	 * this method for the specified tokens
 	 */
-	 String getTextForStartStop(Token start, Token stop);
+  String getTextForStartStop(Token start, Token stop);
 }

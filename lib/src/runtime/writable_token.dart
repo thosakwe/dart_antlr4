@@ -1,15 +1,15 @@
 import 'token.dart';
 
 abstract class WritableToken extends Token {
-  void setText(String text);
+  void set text(String text);
 
-  void setType(int ttype);
+  void set type(int ttype);
 
-  void setLine(int line);
+  void set line(int line);
 
-  void setCharPositionInLine(int pos);
+  void set charPositionInLine(int pos);
 
-  void setChannel(int channel);
+  void set channel(int channel);
 
-  void setTokenIndex(int index);
+  void set tokenIndex(int index);
 }

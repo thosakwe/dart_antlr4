@@ -28,6 +28,7 @@
  *  THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 import 'base_error_listener.dart';
+import 'recognition_exception.dart';
 import 'recognizer.dart' show Recognizer;
 
 /**

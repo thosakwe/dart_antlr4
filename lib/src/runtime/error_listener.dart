@@ -1,5 +1,7 @@
 import 'atn/atn.dart' show ATNConfigSet, DecisionInfo, ParserATNSimulator, PredictionModel;
 import 'dfa/dfa.dart' show DFA;
+import 'parser.dart' show Parser;
+import 'recognition_exception.dart';
 import 'recognizer.dart';
 
 /** How to emit recognition errors. */

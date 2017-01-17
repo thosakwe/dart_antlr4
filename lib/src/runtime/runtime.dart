@@ -1,8 +1,13 @@
 library antlr.runtime;
 
 export 'antlr_input_stream.dart';
+export 'bail_error_strategy.dart';
 export 'base_error_listener.dart';
+export 'buffered_token_stream.dart';
 export 'char_stream.dart';
+export 'common_token.dart';
+export 'common_token_factory.dart';
+export 'common_token_stream.dart';
 export 'console_error_listener.dart';
 export 'error_listener.dart';
 export 'error_strategy.dart';

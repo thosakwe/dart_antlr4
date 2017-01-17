@@ -29,6 +29,7 @@
  */
 import 'error_listener.dart';
 import 'parser.dart' show Parser;
+import 'recognition_exception.dart';
 import 'recognizer.dart' show Recognizer;
 
 /**
