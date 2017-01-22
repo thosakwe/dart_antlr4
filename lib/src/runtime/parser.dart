@@ -1,6 +1,10 @@
+import 'dfa/dfa_class.dart';
+import 'default_error_strategy.dart';
+import 'error_listener.dart';
 import 'error_strategy.dart';
 import 'int_stream.dart';
 import 'parser_rule_context.dart';
+import 'recognition_exception.dart';
 import 'recognizer.dart';
 import 'rule_context.dart';
 import 'token.dart';
@@ -40,11 +44,13 @@ abstract class Parser extends Recognizer<Token, ParserATNSimulator> {
 
   final IntegerStack _precedenceStack = new IntegerStack()..push(0);
 
+  ParserRuleContext _ctx;
+
   /**
    * The {@link ParserRuleContext} object for the currently executing rule.
    * This is always non-null during the parsing process.
    */
-  ParserRuleContext _ctx;
+  ParserRuleContext get ctx => _ctx;
 
   /**
    * Specifies whether or not the parser should construct a parse tree during

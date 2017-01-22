@@ -1,1 +1,1 @@
-library antlr.atn;
+library antlr4.runtime.atn;

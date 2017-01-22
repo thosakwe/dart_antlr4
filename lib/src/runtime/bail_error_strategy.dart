@@ -1,3 +1,4 @@
+import 'default_error_strategy.dart';
 import 'parser.dart';
 import 'parser_rule_context.dart';
 import 'recognition_exception.dart';
