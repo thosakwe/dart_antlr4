@@ -1,4 +1,5 @@
-import 'dfa/dfa_class.dart';
+import 'dfa/dfa.dart';
+import 'tree/tree.dart';
 import 'default_error_strategy.dart';
 import 'error_listener.dart';
 import 'error_strategy.dart';
@@ -373,7 +374,7 @@ abstract class Parser extends Recognizer<Token, ParserATNSimulator> {
             new ATNDeserializationOptions();
         deserializationOptions.setGenerateRuleBypassTransitions(true);
         result = new ATNDeserializer(deserializationOptions)
-            .deserialize(serializedAtn.toCharArray());
+            .deserialize(serializedAtn.codeUnits);
         bypassAltsAtnCache.put(serializedAtn, result);
       }
 
@@ -454,7 +455,7 @@ abstract class Parser extends Recognizer<Token, ParserATNSimulator> {
       line = offendingToken.line;
       charPositionInLine = offendingToken.charPositionInLine;
 
-      ANTLRErrorListener listener = getErrorListenerDispatch();
+      ANTLRErrorListener listener = errorListenerDispatch;
       listener.syntaxError(
           this, offendingToken, line, charPositionInLine, msg, e);
     }
@@ -735,7 +736,7 @@ abstract class Parser extends Recognizer<Token, ParserATNSimulator> {
     List<String> stack = [];
     while (p != null) {
       // compute what follows who invoked us
-      int ruleIndex = p.getRuleIndex();
+      int ruleIndex = p.ruleIndex;
       if (ruleIndex < 0)
         stack.add("n/a");
       else

@@ -246,7 +246,7 @@ abstract class Recognizer<Symbol, ATNSimulator> {
 
   List<ANTLRErrorListener> get errorListeners => _listeners;
 
-  ANTLRErrorListener get errorListenerDispatch =>
+  final ANTLRErrorListener errorListenerDispatch =
       new ProxyErrorListener(errorListeners);
 
   // subclass needs to override these if there are sempreds or actions

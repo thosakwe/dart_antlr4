@@ -28,6 +28,7 @@
  *  THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 import 'int_stream.dart';
+import 'parser_rule_context.dart';
 import 'recognizer.dart';
 import 'rule_context.dart';
 import 'token.dart';
@@ -85,7 +86,7 @@ class RecognitionException implements Exception {
   RecognitionException(
       this.message, this.recognizer, this.input, ParserRuleContext ctx) {
     _ctx = ctx;
-    if (recognizer != null) this.offendingState = recognizer.getState();
+    if (recognizer != null) this.offendingState = recognizer.state;
   }
 
   /**
@@ -100,7 +101,7 @@ class RecognitionException implements Exception {
 	 */
   IntervalSet get expectedTokens {
     if (recognizer != null) {
-      return recognizer.getATN().getExpectedTokens(offendingState, ctx);
+      return recognizer.atn.getExpectedTokens(offendingState, ctx);
     }
 
     return null;

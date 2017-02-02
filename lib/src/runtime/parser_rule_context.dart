@@ -27,6 +27,7 @@
  *  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  *  THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+import 'tree/tree.dart';
 import 'misc/interval.dart';
 import 'parser.dart' show Parser;
 import 'recognition_exception.dart';
@@ -123,17 +124,19 @@ class ParserRuleContext extends RuleContext {
   void enterRule(ParseTreeListener listener) {}
   void exitRule(ParseTreeListener listener) {}
 
-  /** Does not set parent link; other add methods do that */
-  TerminalNode addChild(TerminalNode t) {
-    if (children == null) children = <ParseTree>[];
-    children.add(t);
-    return t;
-  }
+  addChild(t) {
+    assert(t is TerminalNode || t is RuleContext);
 
-  RuleContext addChild(RuleContext ruleInvocation) {
-    if (children == null) children = <ParseTree>[];
-    children.add(ruleInvocation);
-    return ruleInvocation;
+    if (t is TerminalNode) {
+      if (children == null) children = <ParseTree>[];
+      children.add(t);
+      return t;
+    } else {
+      var ruleInvocation = t as RuleContext;
+      if (children == null) children = <ParseTree>[];
+      children.add(ruleInvocation);
+      return ruleInvocation;
+    }
   }
 
   /** Used by enterOuterAlt to toss out a RuleContext previously added as
@@ -175,7 +178,7 @@ class ParserRuleContext extends RuleContext {
   }
 
   // TODO: (thosakwe) Probably create an isType<T>
-  ParseTree getChild(Type ctxType, int i) {
+  ParseTree getChildOfType(Type ctxType, int i) {
     if (children == null || i < 0 || i >= children.length) {
       return null;
     }
@@ -242,9 +245,8 @@ class ParserRuleContext extends RuleContext {
     return tokens;
   }
 
-  ParserRuleContext getRuleContext(Type ctxType, int i) {
-    return getChild(ctxType, i);
-  }
+  ParserRuleContext getRuleContext(Type ctxType, int i) =>
+      getChildOfType(ctxType, i);
 
   List<ParserRuleContext> getRuleContexts(Type ctxType) {
     if (children == null) {

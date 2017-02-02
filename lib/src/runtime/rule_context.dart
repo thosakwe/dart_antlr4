@@ -28,6 +28,7 @@
  *  THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 import 'misc/interval.dart';
+import 'tree/tree.dart';
 import 'parser.dart' show Parser;
 import 'parser_rule_context.dart' show ParserRuleContext;
 import 'recognizer.dart';
@@ -179,7 +180,7 @@ class RuleContext implements RuleNode {
   int get childCount => 0;
 
   @override
-  T accept(ParseTreeVisitor<T> visitor) => visitor.visitChildren(this);
+  T accept<T>(ParseTreeVisitor<T> visitor) => visitor.visitChildren(this);
 
   @override
   String toStringTree([x]) {
@@ -189,7 +190,7 @@ class RuleContext implements RuleNode {
     return toStringTree(null);
   }
 
-  @override
+  // @override
   String convertToString([x, y]) {
     if (x is Recognizer) {
       if (y is RuleContext) {

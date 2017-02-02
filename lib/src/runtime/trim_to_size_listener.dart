@@ -1,3 +1,4 @@
+import 'tree/tree.dart';
 import 'parser_rule_context.dart';
 
 class TrimToSizeListener implements ParseTreeListener {
