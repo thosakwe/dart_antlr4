@@ -7,27 +7,27 @@ import 'token_source.dart';
  *  we obtained this token.
  */
 abstract class Token {
-  static final int INVALID_TYPE = 0;
+  static const int INVALID_TYPE = 0;
 
 /** During lookahead operations, this "token" signifies we hit rule end ATN state
  *  and did not follow it despite needing to.
  */
-  static final int EPSILON = -2;
+  static const int EPSILON = -2;
 
-  static final int MIN_USER_TOKEN_TYPE = 1;
+  static const int MIN_USER_TOKEN_TYPE = 1;
 
-  static final int EOF = IntStream.EOF;
+  static const int EOF = IntStream.EOF;
 
 /** All tokens go to the parser (unless skip() is called in that rule)
  *  on a particular "channel".  The parser tunes to a particular channel
  *  so that whitespace etc... can go to the parser on a "hidden" channel.
  */
-  static final int DEFAULT_CHANNEL = 0;
+  static const int DEFAULT_CHANNEL = 0;
 
 /** Anything on different channel than DEFAULT_CHANNEL is not parsed
  *  by parser.
  */
-  static final int HIDDEN_CHANNEL = 1;
+  static const int HIDDEN_CHANNEL = 1;
 
 /**
  * This is the minimum constant value which can be assigned to a

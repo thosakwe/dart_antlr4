@@ -19,13 +19,13 @@ abstract class IntStream {
  * The value returned by {@link #LA LA()} when the end of the stream is
  * reached.
  */
-  static final int EOF = -1;
+  static const int EOF = -1;
 
 /**
  * The value returned by {@link #getSourceName} when the actual name of the
  * underlying source is not known.
  */
-  static final String UNKNOWN_SOURCE_NAME = "<unknown>";
+  static const String UNKNOWN_SOURCE_NAME = "<unknown>";
 
 /**
  * Consumes the current symbol in the stream. This method has the following

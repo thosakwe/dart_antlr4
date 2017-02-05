@@ -35,7 +35,7 @@ import 'state.dart';
 			if ( s.edges!=null ) n = s.edges.length;
 			for (int i=0; i<n; i++) {
 				DFAState t = s.edges[i];
-				if ( t!=null && t.stateNumber != Integer.MAX_VALUE ) {
+				if ( t!=null && t.stateNumber != int.MAX_VALUE ) {
 					buf.write(getStateString(s));
 					String label = getEdgeLabel(i);
 					buf..write("-")..write(label)..write("->")..write(getStateString(t))..write('\n');
